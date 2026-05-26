@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MAISON ÉLISE — Moda de lujo contemporánea. Colecciones exclusivas, confección artesanal y estilo atemporal para quienes exigen lo extraordinario.">
+  <meta name="keywords" content="ropa de lujo, moda premium, boutique exclusiva, alta costura, fashion luxury">
+  <meta name="author" content="Maison Élise">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://maisonelise.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MAISON ÉLISE | Moda de Lujo Contemporánea">
+  <meta property="og:description" content="Descubre colecciones exclusivas donde la elegancia se encuentra con el diseño atemporal.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80">
+  <meta property="og:url" content="https://maisonelise.com/">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MAISON ÉLISE | Moda de Lujo">
+  <meta name="twitter:description" content="Colecciones exclusivas de moda premium.">
+
+  <title>MAISON ÉLISE | Moda de Lujo Contemporánea</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            noir: '#0a0a0a',
+            charcoal: '#141414',
+            cream: '#f5f0eb',
+            champagne: '#c9a962',
+            gold: '#d4af37',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            luxe: '0.35em',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="theme-color" content="#0a0a0a">
+</head>
+<body class="bg-noir text-cream font-sans antialiased overflow-x-hidden">
+
+  <a href="#novedades" class="skip-link">Saltar al catálogo</a>
+
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 z-[100] bg-noir flex items-center justify-center transition-opacity duration-700">
+    <div class="text-center">
+      <p class="font-display text-4xl md:text-5xl tracking-luxe text-champagne animate-pulse">MAISON ÉLISE</p>
+      <div class="mt-6 w-32 h-px bg-champagne/30 mx-auto overflow-hidden">
+        <div class="loader-bar h-full bg-champagne"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+      <a href="#" class="font-display text-2xl md:text-3xl tracking-luxe text-cream hover:text-champagne transition-colors duration-300">
+        MAISON ÉLISE
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-10 text-xs tracking-luxe uppercase">
+        <li><a href="#colecciones" class="nav-link">Colecciones</a></li>
+        <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+        <li><a href="#novedades" class="nav-link">Novedades</a></li>
+        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="#testimonios" class="nav-link">Clientes</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4 md:gap-6">
+        <button id="login-btn" class="hidden md:inline-flex btn-outline text-xs px-5 py-3" aria-label="Iniciar sesión">
+          Iniciar sesión
+        </button>
+        <button id="qr-btn" class="hidden md:inline-flex btn-outline text-xs px-5 py-3" type="button" aria-label="Ver código QR del catálogo">
+          Escanear QR
+        </button>
+        <button id="cart-btn" class="relative group p-2" aria-label="Abrir carrito">
+          <svg class="w-5 h-5 text-cream group-hover:text-champagne transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span id="cart-count" class="absolute -top-1 -right-1 w-5 h-5 bg-champagne text-noir text-[10px] font-semibold rounded-full flex items-center justify-center opacity-0 scale-0 transition-all duration-300">0</span>
+        </button>
+
+        <a href="#novedades" class="hidden md:inline-flex btn-primary text-xs">Comprar ahora</a>
+
+        <button id="menu-toggle" class="lg:hidden p-2" aria-label="Menú">
+          <div class="hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-noir/98 backdrop-blur-xl translate-x-full transition-transform duration-500 lg:hidden">
+    <div class="flex flex-col items-center justify-center h-full gap-8">
+      <a href="#colecciones" class="mobile-nav-link font-display text-3xl">Colecciones</a>
+      <a href="#catalogo" class="mobile-nav-link font-display text-3xl">Catálogo</a>
+      <a href="#novedades" class="mobile-nav-link font-display text-3xl">Novedades</a>
+      <a href="#nosotros" class="mobile-nav-link font-display text-3xl">Nosotros</a>
+      <a href="#testimonios" class="mobile-nav-link font-display text-3xl">Clientes</a>
+      <a href="#contacto" class="mobile-nav-link font-display text-3xl">Contacto</a>
+      <button id="login-btn-mobile" class="btn-outline mt-2">Iniciar sesión</button>
+      <button id="qr-btn-mobile" class="btn-outline mt-2" type="button">Escanear QR</button>
+      <a href="#novedades" class="btn-primary mt-8">Explorar colección</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="hero-gradient absolute inset-0"></div>
+    <div class="hero-mesh absolute inset-0 opacity-40"></div>
+
+    <div class="hero-bg absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1920&q=80"
+        alt="Modelo con colección de moda de lujo Maison Élise"
+        class="w-full h-full object-cover scale-110 hero-parallax"
+        loading="eager"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/50 to-noir"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-24">
+      <p class="reveal text-champagne text-xs md:text-sm tracking-luxe uppercase mb-6" data-delay="0">
+        Primavera / Verano 2026
+      </p>
+      <h1 class="reveal font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-6" data-delay="100">
+        Donde el lujo<br>
+        <span class="italic text-champagne">encuentra el alma</span>
+      </h1>
+      <p class="reveal max-w-xl mx-auto text-cream/70 text-sm md:text-base font-light leading-relaxed mb-10" data-delay="200">
+        Piezas atemporales confeccionadas con los materiales más selectos del mundo. 
+        Para quienes no siguen tendencias — las definen.
+      </p>
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" data-delay="300">
+        <a href="#novedades" class="btn-primary w-full sm:w-auto">Descubrir colección</a>
+        <a href="#nosotros" class="btn-outline w-full sm:w-auto">Nuestra historia</a>
+      </div>
+
+      <div class="reveal mt-20 flex justify-center" data-delay="400">
+        <a href="#colecciones" class="scroll-indicator flex flex-col items-center gap-2 text-cream/50 hover:text-champagne transition-colors">
+          <span class="text-[10px] tracking-luxe uppercase">Scroll</span>
+          <div class="w-px h-12 bg-gradient-to-b from-champagne to-transparent animate-bounce-slow"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="border-y border-cream/10 bg-charcoal/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="reveal text-center" data-delay="0">
+        <p class="font-display text-4xl md:text-5xl text-champagne">15+</p>
+        <p class="text-xs tracking-luxe uppercase text-cream/50 mt-2">Años de excelencia</p>
+      </div>
+      <div class="reveal text-center" data-delay="100">
+        <p class="font-display text-4xl md:text-5xl text-champagne">12K</p>
+        <p class="text-xs tracking-luxe uppercase text-cream/50 mt-2">Clientes satisfechos</p>
+      </div>
+      <div class="reveal text-center" data-delay="200">
+        <p class="font-display text-4xl md:text-5xl text-champagne">48</p>
+        <p class="text-xs tracking-luxe uppercase text-cream/50 mt-2">Países con envío</p>
+      </div>
+      <div class="reveal text-center" data-delay="300">
+        <p class="font-display text-4xl md:text-5xl text-champagne">100%</p>
+        <p class="text-xs tracking-luxe uppercase text-cream/50 mt-2">Materiales premium</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Colecciones -->
+  <section id="colecciones" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div>
+          <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Curadas para ti</p>
+          <h2 class="font-display text-4xl md:text-6xl font-light">Colecciones</h2>
+        </div>
+        <a href="#novedades" class="btn-outline self-start md:self-auto">Ver todo el catálogo</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="reveal collection-card group relative overflow-hidden rounded-sm aspect-[3/4] md:col-span-2 md:row-span-2 md:aspect-auto md:min-h-[600px]" data-delay="0">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80&auto=format&fit=crop" alt="Colección Éternelle — moda femenina de lujo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          <div class="collection-overlay">
+            <span class="text-xs tracking-luxe uppercase text-champagne">Exclusiva</span>
+            <h3 class="font-display text-3xl md:text-4xl mt-2">Éternelle</h3>
+            <p class="text-cream/70 text-sm mt-2 max-w-xs">Siluetas fluidas en seda italiana y lino orgánico.</p>
+            <a href="#novedades" class="inline-flex items-center gap-2 mt-4 text-sm text-champagne hover:gap-4 transition-all">
+              Explorar <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="reveal collection-card group relative overflow-hidden rounded-sm aspect-[3/4]" data-delay="100">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80&auto=format&fit=crop" alt="Colección Nocturne — moda masculina premium" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          <div class="collection-overlay">
+            <span class="text-xs tracking-luxe uppercase text-champagne">Hombre</span>
+            <h3 class="font-display text-2xl mt-2">Nocturne</h3>
+            <a href="#novedades" class="inline-flex items-center gap-2 mt-3 text-sm text-champagne hover:gap-4 transition-all">Explorar <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="reveal collection-card group relative overflow-hidden rounded-sm aspect-[3/4]" data-delay="200">
+          <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80&auto=format&fit=crop" alt="Colección Accesorios — bolsos y complementos de lujo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          <div class="collection-overlay">
+            <span class="text-xs tracking-luxe uppercase text-champagne">Accesorios</span>
+            <h3 class="font-display text-2xl mt-2">Signature</h3>
+            <a href="#novedades" class="inline-flex items-center gap-2 mt-3 text-sm text-champagne hover:gap-4 transition-all">Explorar <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner CTA -->
+  <section class="reveal relative py-32 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&q=80&auto=format&fit=crop" alt="Oferta exclusiva moda premium" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+    <div class="absolute inset-0 bg-noir/75"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <p class="text-champagne text-xs tracking-luxe uppercase mb-4">Edición limitada</p>
+      <h2 class="font-display text-4xl md:text-6xl font-light mb-6">Hasta 30% en piezas seleccionadas</h2>
+      <p class="text-cream/70 mb-8 font-light">Solo esta semana. Unidades limitadas en cada artículo.</p>
+      <a href="#novedades" class="btn-primary">Aprovechar oferta</a>
+    </div>
+  </section>
+
+  <!-- Catálogo completo -->
+  <section id="catalogo" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+        <div>
+          <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Tienda completa</p>
+          <h2 class="font-display text-4xl md:text-6xl font-light">Catálogo</h2>
+          <p class="text-cream/60 mt-4 max-w-xl font-light text-sm">
+            Explora todas las piezas. Filtra por categoría, busca por nombre y ordena por precio.
+          </p>
+        </div>
+        <p id="catalog-count" class="text-xs tracking-luxe uppercase text-cream/50">8 productos</p>
+      </div>
+
+      <div class="reveal catalog-toolbar mb-10">
+        <div class="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
+          <div class="relative flex-1 max-w-md">
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Buscar prenda..."
+              class="w-full bg-charcoal/60 border border-cream/15 pl-11 pr-4 py-3.5 text-sm focus:outline-none focus:border-champagne transition-colors placeholder:text-cream/30"
+              aria-label="Buscar productos"
+            >
+            <svg class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-cream/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <div class="flex flex-wrap gap-2" id="category-filters" role="group" aria-label="Filtrar por categoría">
+            <!-- Injected by JS -->
+          </div>
+          <select id="sort-select" class="bg-charcoal/60 border border-cream/15 px-4 py-3.5 text-xs tracking-luxe uppercase focus:outline-none focus:border-champagne transition-colors" aria-label="Ordenar productos">
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre A-Z</option>
+          </select>
+          <button id="reset-filters" type="button" class="btn-outline">Mostrar todos</button>
+        </div>
+      </div>
+
+      <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        <!-- Products injected by JS -->
+      </div>
+      <p id="catalog-empty" class="hidden text-center text-cream/50 py-16 font-light">No encontramos productos con ese criterio.</p>
+    </div>
+  </section>
+
+  <!-- Novedades / Productos -->
+  <section id="novedades" class="py-24 md:py-32 bg-charcoal/30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal text-center mb-16">
+        <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Recién llegado</p>
+        <h2 class="font-display text-4xl md:text-6xl font-light">Novedades</h2>
+        <p class="text-cream/60 mt-4 max-w-lg mx-auto font-light">Selección curada de las piezas más deseadas de la temporada.</p>
+      </div>
+
+      <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <!-- Products injected by JS -->
+      </div>
+
+      <div class="reveal text-center mt-10">
+        <a href="#catalogo" class="btn-outline">Ver catálogo completo</a>
+      </div>
+
+      <div class="reveal text-center mt-8">
+        <a href="https://wa.me/5215512345678?text=Hola,%20me%20interesa%20ver%20más%20productos%20de%20Maison%20Élise" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          Consultar disponibilidad por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal relative">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80&auto=format&fit=crop" alt="Atelier Maison Élise — confección artesanal de lujo" class="w-full h-full object-cover img-reveal" loading="lazy">
+          </div>
+          <div class="absolute -bottom-6 -right-6 md:-right-10 bg-champagne text-noir p-8 hidden md:block">
+            <p class="font-display text-5xl font-medium">2011</p>
+            <p class="text-xs tracking-luxe uppercase mt-1">Fundación</p>
+          </div>
+        </div>
+
+        <div class="reveal" data-delay="150">
+          <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Nuestra esencia</p>
+          <h2 class="font-display text-4xl md:text-5xl font-light leading-tight mb-6">
+            Artesanía que trasciende la moda
+          </h2>
+          <p class="text-cream/70 font-light leading-relaxed mb-6">
+            En Maison Élise creemos que la verdadera elegancia no se compra — se vive. 
+            Cada prenda es el resultado de cientos de horas de trabajo artesanal, 
+            telas provenientes de los mejores tejidos de Europa y un compromiso 
+            inquebrantable con la sostenibilidad.
+          </p>
+          <p class="text-cream/70 font-light leading-relaxed mb-8">
+            Nuestro atelier en la Ciudad de México fusiona técnicas centenarias 
+            con diseño contemporáneo, creando piezas que acompañan a nuestros 
+            clientes durante décadas.
+          </p>
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center gap-3 text-sm">
+              <span class="w-8 h-px bg-champagne"></span>
+              Confección 100% artesanal
+            </li>
+            <li class="flex items-center gap-3 text-sm">
+              <span class="w-8 h-px bg-champagne"></span>
+              Materiales certificados de origen europeo
+            </li>
+            <li class="flex items-center gap-3 text-sm">
+              <span class="w-8 h-px bg-champagne"></span>
+              Envío premium a todo el mundo
+            </li>
+          </ul>
+          <a href="#contacto" class="btn-primary">Agendar cita privada</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="py-24 md:py-32 bg-charcoal/30 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal text-center mb-16">
+        <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Voces exclusivas</p>
+        <h2 class="font-display text-4xl md:text-6xl font-light">Lo que dicen nuestros clientes</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <blockquote class="reveal testimonial-card" data-delay="0">
+          <div class="flex gap-1 text-champagne mb-4">★★★★★</div>
+          <p class="font-display text-xl italic leading-relaxed mb-6">
+            "La calidad supera cualquier expectativa. Mi abrigo de cachemira es la pieza más preciada de mi guardarropa."
+          </p>
+          <footer>
+            <p class="text-sm font-medium">Valentina R.</p>
+            <p class="text-xs text-cream/50 tracking-luxe uppercase mt-1">Ciudad de México</p>
+          </footer>
+        </blockquote>
+
+        <blockquote class="reveal testimonial-card" data-delay="100">
+          <div class="flex gap-1 text-champagne mb-4">★★★★★</div>
+          <p class="font-display text-xl italic leading-relaxed mb-6">
+            "El servicio personalizado es incomparable. Me ayudaron a encontrar el traje perfecto para mi boda."
+          </p>
+          <footer>
+            <p class="text-sm font-medium">Alejandro M.</p>
+            <p class="text-xs text-cream/50 tracking-luxe uppercase mt-1">Monterrey</p>
+          </footer>
+        </blockquote>
+
+        <blockquote class="reveal testimonial-card" data-delay="200">
+          <div class="flex gap-1 text-champagne mb-4">★★★★★</div>
+          <p class="font-display text-xl italic leading-relaxed mb-6">
+            "Invertir en Maison Élise fue la mejor decisión. Cada prenda es una obra de arte que perdura."
+          </p>
+          <footer>
+            <p class="text-sm font-medium">Camila S.</p>
+            <p class="text-xs text-cream/50 tracking-luxe uppercase mt-1">Guadalajara</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section id="contacto" class="py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal relative rounded-sm overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-champagne/20 via-noir to-charcoal"></div>
+        <div class="absolute inset-0 hero-mesh opacity-30"></div>
+        <div class="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center md:text-left md:flex md:items-center md:justify-between gap-12">
+          <div class="md:max-w-md">
+            <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Inner circle</p>
+            <h2 class="font-display text-3xl md:text-5xl font-light mb-4">Acceso exclusivo</h2>
+            <p class="text-cream/70 font-light text-sm">
+              Únete a nuestro círculo privado. Lanzamientos anticipados, 
+              invitaciones a eventos VIP y 15% en tu primera compra.
+            </p>
+          </div>
+          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 w-full md:max-w-md">
+            <input
+              type="email"
+              required
+              placeholder="tu@email.com"
+              class="flex-1 bg-noir/50 border border-cream/20 px-5 py-4 text-sm focus:outline-none focus:border-champagne transition-colors placeholder:text-cream/30"
+              aria-label="Correo electrónico"
+            >
+            <button type="submit" class="btn-primary whitespace-nowrap">Unirme</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-cream/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <p class="font-display text-2xl tracking-luxe mb-4">MAISON ÉLISE</p>
+          <p class="text-cream/50 text-sm font-light leading-relaxed">
+            Redefiniendo el lujo contemporáneo desde 2011.
+          </p>
+        </div>
+        <div>
+          <p class="text-xs tracking-luxe uppercase text-cream/50 mb-4">Navegación</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#colecciones" class="footer-link">Colecciones</a></li>
+            <li><a href="#novedades" class="footer-link">Tienda</a></li>
+            <li><a href="#nosotros" class="footer-link">Nosotros</a></li>
+            <li><a href="#contacto" class="footer-link">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs tracking-luxe uppercase text-cream/50 mb-4">Contacto</p>
+          <ul class="space-y-2 text-sm text-cream/70">
+            <li>Av. Presidente Masaryk 360</li>
+            <li>Polanco, CDMX 11560</li>
+            <li><a href="tel:+525512345678" class="footer-link">+52 55 1234 5678</a></li>
+            <li><a href="mailto:hola@maisonelise.com" class="footer-link">hola@maisonelise.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs tracking-luxe uppercase text-cream/50 mb-4">Síguenos</p>
+          <div class="flex gap-4">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Pinterest">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-cream/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-cream/40">
+        <p>&copy; 2026 Maison Élise. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a href="#" class="footer-link">Privacidad</a>
+          <a href="#" class="footer-link">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-overlay" class="fixed inset-0 bg-noir/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-charcoal z-[70] translate-x-full transition-transform duration-500 flex flex-col shadow-2xl">
+    <div class="flex items-center justify-between p-6 border-b border-cream/10">
+      <h3 class="font-display text-2xl">Tu selección</h3>
+      <button id="cart-close" class="p-2 hover:text-champagne transition-colors" aria-label="Cerrar carrito">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+      <p id="cart-empty" class="text-cream/50 text-center py-12 font-light">Tu carrito está vacío</p>
+    </div>
+
+    <div class="p-6 border-t border-cream/10">
+      <div class="flex justify-between mb-4">
+        <span class="text-cream/70">Subtotal</span>
+        <span id="cart-total" class="font-display text-2xl text-champagne">$0</span>
+      </div>
+      <button id="checkout-btn" class="btn-primary w-full mb-3" disabled>Finalizar por WhatsApp</button>
+      <p class="text-xs text-cream/40 text-center">Envío gratuito en compras mayores a $5,000 MXN</p>
+    </div>
+  </aside>
+
+  <!-- Product Modal -->
+  <div id="product-overlay" class="fixed inset-0 bg-noir/70 backdrop-blur-sm z-[75] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="product-modal" class="fixed inset-0 z-[80] flex items-end md:items-center justify-center p-0 md:p-4 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+    <div class="w-full max-w-4xl max-h-[92vh] md:max-h-[90vh] bg-charcoal border border-cream/10 shadow-2xl product-modal-panel translate-y-6 md:translate-y-0 md:scale-[0.98] transition-transform duration-500 flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between p-5 border-b border-cream/10">
+        <p id="product-modal-title" class="text-xs tracking-luxe uppercase text-cream/50">Detalle del producto</p>
+        <button id="product-close" class="p-2 hover:text-champagne transition-colors" aria-label="Cerrar detalle">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div id="product-modal-content" class="p-6 md:p-8 overflow-y-auto modal-scroll">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="login-overlay" class="fixed inset-0 bg-noir/70 backdrop-blur-sm z-[85] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="login-modal" class="fixed inset-0 z-[90] flex items-end md:items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="w-full max-w-md bg-charcoal border border-cream/10 shadow-2xl login-modal-panel translate-y-6 md:translate-y-0 md:scale-[0.98] transition-transform duration-500">
+      <div class="flex items-center justify-between p-5 border-b border-cream/10">
+        <p id="auth-modal-title" class="font-display text-2xl">Mi cuenta</p>
+        <button id="login-close" class="p-2 hover:text-champagne transition-colors" aria-label="Cerrar login">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="p-6">
+        <div id="auth-tabs" class="flex border border-cream/10 mb-6">
+          <button type="button" data-auth-tab="login" class="auth-tab flex-1 py-3 text-xs tracking-luxe uppercase active">Iniciar sesión</button>
+          <button type="button" data-auth-tab="register" class="auth-tab flex-1 py-3 text-xs tracking-luxe uppercase">Registrarse</button>
+        </div>
+
+        <div id="auth-panel-login">
+          <p class="text-cream/60 text-sm font-light mb-6">
+            Accede para finalizar tu compra y guardar tu selección.
+          </p>
+          <form id="login-form" class="space-y-4">
+            <div>
+              <label for="login-email" class="block text-xs tracking-luxe uppercase text-cream/50 mb-2">Email</label>
+              <input id="login-email" type="email" required placeholder="tu@email.com" autocomplete="email"
+                class="input-field w-full">
+            </div>
+            <div>
+              <label for="login-password" class="block text-xs tracking-luxe uppercase text-cream/50 mb-2">Contraseña</label>
+              <input id="login-password" type="password" required placeholder="••••••••" autocomplete="current-password"
+                class="input-field w-full">
+            </div>
+            <button type="submit" class="btn-primary w-full">Entrar</button>
+          </form>
+          <p class="text-xs text-cream/40 mt-4 text-center">Demo: cliente@maisonelise.com / luxe2026</p>
+        </div>
+
+        <div id="auth-panel-register" class="hidden">
+          <p class="text-cream/60 text-sm font-light mb-6">
+            Crea tu cuenta y obtén 15% en tu primera compra.
+          </p>
+          <form id="register-form" class="space-y-4">
+            <div>
+              <label for="register-name" class="block text-xs tracking-luxe uppercase text-cream/50 mb-2">Nombre</label>
+              <input id="register-name" type="text" required placeholder="Tu nombre" autocomplete="name" class="input-field w-full">
+            </div>
+            <div>
+              <label for="register-email" class="block text-xs tracking-luxe uppercase text-cream/50 mb-2">Email</label>
+              <input id="register-email" type="email" required placeholder="tu@email.com" autocomplete="email" class="input-field w-full">
+            </div>
+            <div>
+              <label for="register-password" class="block text-xs tracking-luxe uppercase text-cream/50 mb-2">Contraseña</label>
+              <input id="register-password" type="password" required minlength="6" placeholder="Mínimo 6 caracteres" autocomplete="new-password" class="input-field w-full">
+            </div>
+            <button type="submit" class="btn-primary w-full">Crear cuenta</button>
+          </form>
+        </div>
+
+        <div id="auth-panel-account" class="hidden text-center py-4">
+          <p class="text-champagne text-xs tracking-luxe uppercase mb-2">Bienvenido</p>
+          <p id="account-name" class="font-display text-2xl mb-1"></p>
+          <p id="account-email" class="text-cream/60 text-sm mb-8"></p>
+          <button id="logout-btn" type="button" class="btn-outline w-full">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Modal -->
+  <div id="qr-overlay" class="fixed inset-0 bg-noir/70 backdrop-blur-sm z-[86] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="qr-modal" class="fixed inset-0 z-[95] flex items-end md:items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="w-full max-w-md bg-charcoal border border-cream/10 shadow-2xl qr-modal-panel translate-y-6 md:translate-y-0 md:scale-[0.985] transition-transform duration-500">
+      <div class="flex items-center justify-between p-5 border-b border-cream/10">
+        <p class="font-display text-2xl">Escanea para abrir</p>
+        <button id="qr-close" class="p-2 hover:text-champagne transition-colors" type="button" aria-label="Cerrar QR">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-6">
+        <p class="text-cream/60 text-sm font-light mb-4">
+          Al escanear, podrás ver el catálogo y comprar desde tu teléfono.
+        </p>
+
+        <div class="bg-noir/40 border border-cream/10 rounded-sm p-4 flex items-center justify-center">
+          <canvas id="qr-canvas" width="240" height="240" aria-label="Código QR"></canvas>
+        </div>
+
+        <div class="mt-4 text-xs text-cream/40 break-words" id="qr-url-text"></div>
+        <p id="qr-note" class="text-cream/40 text-xs mt-3">Escanea el código QR o copia el enlace para navegar.</p>
+
+        <a id="qr-open-link" class="btn-primary w-full mt-4 text-center justify-center" href="#" target="_blank" rel="noopener noreferrer">
+          Abrir catálogo en el navegador
+        </a>
+
+        <button id="qr-copy-btn" class="btn-outline w-full mt-3" type="button">
+          Copiar enlace
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <a
+    id="whatsapp-btn"
+    href="https://wa.me/5215512345678?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Maison%20Élise"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Contactar por WhatsApp"
+  >
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-tooltip">¿Necesitas ayuda?</span>
+  </a>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-champagne text-noir px-6 py-3 text-sm font-medium rounded-sm opacity-0 translate-y-4 pointer-events-none transition-all duration-300 z-[80]">
+    Producto añadido al carrito
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Maison Élise",
+    "description": "Boutique de moda de lujo contemporánea con colecciones exclusivas y confección artesanal.",
+    "url": "https://maisonelise.com",
+    "telephone": "+52-55-1234-5678",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Presidente Masaryk 360",
+      "addressLocality": "Ciudad de México",
+      "postalCode": "11560",
+      "addressCountry": "MX"
+    },
+    "priceRange": "$$$$",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80"
+  }
+  </script>
+</body>
+</html>
