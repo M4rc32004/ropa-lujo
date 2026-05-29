@@ -250,20 +250,17 @@
   <!-- Catálogo completo -->
   <section id="catalogo" class="py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-        <div>
-          <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Tienda completa</p>
-          <h2 class="font-display text-4xl md:text-6xl font-light">Catálogo</h2>
-          <p class="text-cream/60 mt-4 max-w-xl font-light text-sm">
-            Explora todas las piezas. Filtra por categoría, busca por nombre y ordena por precio.
-          </p>
-        </div>
-        <p id="catalog-count" class="text-xs tracking-luxe uppercase text-cream/50">8 productos</p>
+      <div class="reveal text-center mb-10">
+        <p class="text-champagne text-xs tracking-luxe uppercase mb-3">Tienda completa</p>
+        <h2 class="font-display text-4xl md:text-6xl font-light">Catálogo</h2>
+        <p class="text-cream/60 mt-4 max-w-xl mx-auto font-light text-sm">
+          Explora todas las piezas. Filtra por categoría, busca por nombre y ordena por precio.
+        </p>
       </div>
 
       <div class="reveal catalog-toolbar mb-10">
-        <div class="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
-          <div class="relative flex-1 max-w-md">
+        <div class="flex flex-col gap-4">
+          <div class="relative">
             <input
               id="search-input"
               type="search"
@@ -278,17 +275,23 @@
           <div class="flex flex-wrap gap-2" id="category-filters" role="group" aria-label="Filtrar por categoría">
             <!-- Injected by JS -->
           </div>
-          <select id="sort-select" class="bg-charcoal/60 border border-cream/15 px-4 py-3.5 text-xs tracking-luxe uppercase focus:outline-none focus:border-champagne transition-colors" aria-label="Ordenar productos">
-            <option value="featured">Destacados</option>
-            <option value="price-asc">Precio: menor a mayor</option>
-            <option value="price-desc">Precio: mayor a menor</option>
-            <option value="name">Nombre A-Z</option>
-          </select>
-          <button id="reset-filters" type="button" class="btn-outline">Mostrar todos</button>
+          <div class="flex gap-3">
+            <select id="sort-select" class="flex-1 bg-charcoal/60 border border-cream/15 px-4 py-3.5 text-xs tracking-luxe uppercase focus:outline-none focus:border-champagne transition-colors" aria-label="Ordenar productos">
+              <option value="featured">Destacados</option>
+              <option value="price-asc">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+              <option value="name">Nombre A-Z</option>
+            </select>
+            <button id="reset-filters" type="button" class="btn-outline whitespace-nowrap">Todos</button>
+          </div>
         </div>
       </div>
 
-      <div id="catalog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+      <div class="reveal flex justify-between items-center mb-6">
+        <p id="catalog-count" class="text-xs tracking-luxe uppercase text-cream/50">8 productos</p>
+      </div>
+
+      <div id="catalog-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         <!-- Products injected by JS -->
       </div>
       <p id="catalog-empty" class="hidden text-center text-cream/50 py-16 font-light">No encontramos productos con ese criterio.</p>
