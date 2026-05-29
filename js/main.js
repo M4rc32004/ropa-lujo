@@ -6,7 +6,7 @@
 const WHATSAPP_NUMBER = '5215512345678';
 const AUTH_STORAGE_KEY = 'maison-user';
 const USERS_STORAGE_KEY = 'maison-users';
-const DEFAULT_DOMAIN = 'maisonelise.com';
+const DEFAULT_DOMAIN = 'm4rc32004.github.io/ropa-lujo';
 
 const products = [
   {
