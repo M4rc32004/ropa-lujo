@@ -56,7 +56,7 @@
 </head>
 <body class="bg-noir text-cream font-sans antialiased overflow-x-hidden">
 
-  <a href="#novedades" class="skip-link">Saltar al catálogo</a>
+  <a href="#catalogo" class="skip-link">Saltar al catálogo</a>
 
   <!-- Loader -->
   <div id="loader" class="fixed inset-0 z-[100] bg-noir flex items-center justify-center transition-opacity duration-700">
@@ -124,19 +124,22 @@
     </div>
   </div>
 
+  <main>
+
   <!-- Hero -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="hero-gradient absolute inset-0"></div>
     <div class="hero-mesh absolute inset-0 opacity-40"></div>
 
     <div class="hero-bg absolute inset-0">
+      <!-- Imagen de fondo: Pareja elegante - hombre con traje y mujer con vestido de diseñador -->
       <img
-        src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1920&q=80"
-        alt="Modelo con colección de moda de lujo Maison Élise"
+        src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1920&q=80"
+        alt="Pareja elegante - Hombre con traje y mujer con vestido de lujo"
         class="w-full h-full object-cover scale-110 hero-parallax"
         loading="eager"
       >
-      <div class="absolute inset-0 bg-gradient-to-b from-noir/70 via-noir/50 to-noir"></div>
+      <div class="absolute inset-0 bg-noir/40 bg-gradient-to-b from-transparent via-noir/20 to-noir"></div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center pt-24">
@@ -442,6 +445,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="border-t border-cream/10 py-16">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -507,17 +512,59 @@
       </button>
     </div>
 
-    <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
-      <p id="cart-empty" class="text-cream/50 text-center py-12 font-light">Tu carrito está vacío</p>
+    <!-- Paso 1: Revisar Selección -->
+    <div id="cart-step-1" class="flex-1 flex flex-col overflow-hidden animate-fade-in">
+      <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+        <p id="cart-empty" class="text-cream/50 text-center py-12 font-light">Tu carrito está vacío</p>
+      </div>
+
+      <div class="p-6 border-t border-cream/10 bg-noir/20">
+        <div class="flex justify-between mb-6">
+          <span class="text-cream/70 text-sm">Subtotal</span>
+          <span id="cart-total" class="font-display text-2xl text-champagne">$0</span>
+        </div>
+        <button id="cart-go-to-payment" class="btn-primary w-full mb-3 py-4 text-[10px] tracking-luxe uppercase" disabled>Continuar compra</button>
+        <p class="text-[10px] text-cream/40 text-center uppercase tracking-widest">Envío gratuito en compras mayores a $5,000 MXN</p>
+      </div>
     </div>
 
-    <div class="p-6 border-t border-cream/10">
-      <div class="flex justify-between mb-4">
-        <span class="text-cream/70">Subtotal</span>
-        <span id="cart-total" class="font-display text-2xl text-champagne">$0</span>
+    <!-- Paso 2: Selección de Pago (Tipo Mercado Libre) -->
+    <div id="cart-step-2" class="hidden flex-1 flex flex-col p-6 animate-fade-in overflow-hidden">
+      <button id="cart-back-to-items" class="text-champagne text-[10px] tracking-luxe uppercase mb-8 flex items-center gap-2 hover:gap-3 transition-all">
+        ← Volver a mi selección
+      </button>
+      <h4 class="font-display text-3xl mb-2">¿Cómo quieres pagar?</h4>
+      <p class="text-cream/50 text-xs mb-8 font-light italic">Selecciona tu método de pago preferido para finalizar.</p>
+      
+      <div class="space-y-3 overflow-y-auto flex-1 pr-1" id="cart-payment-options-list">
+        <button class="cart-payment-option w-full flex items-center p-4 border border-cream/10 rounded-sm hover:border-champagne transition-all active" data-payment="Tarjeta de Crédito / Débito">
+          <div class="w-10 h-10 bg-cream/5 rounded-full flex items-center justify-center mr-4 text-champagne">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-width="1.5"/></svg>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium">Tarjeta de Crédito o Débito</p>
+          </div>
+          <div class="ml-auto radio-circle w-4 h-4 rounded-full border border-champagne flex items-center justify-center"><div class="dot w-2 h-2 bg-champagne rounded-full"></div></div>
+        </button>
+
+        <button class="cart-payment-option w-full flex items-center p-4 border border-cream/10 rounded-sm hover:border-champagne transition-all" data-payment="Efectivo (OXXO / PayCash)">
+          <div class="w-10 h-10 bg-cream/5 rounded-full flex items-center justify-center mr-4 text-champagne">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="1.5"/></svg>
+          </div>
+          <div class="text-left">
+            <p class="text-xs font-medium">Efectivo en puntos de pago</p>
+          </div>
+          <div class="ml-auto radio-circle w-4 h-4 rounded-full border border-cream/20"></div>
+        </button>
       </div>
-      <button id="checkout-btn" class="btn-primary w-full mb-3" disabled>Finalizar por WhatsApp</button>
-      <p class="text-xs text-cream/40 text-center">Envío gratuito en compras mayores a $5,000 MXN</p>
+
+      <div class="mt-8 pt-6 border-t border-cream/10 bg-charcoal">
+        <div class="flex justify-between items-center mb-6">
+          <span class="text-[10px] uppercase tracking-luxe text-cream/50">Total del pedido</span>
+          <span id="cart-total-payment" class="font-display text-3xl text-champagne">$0</span>
+        </div>
+        <button id="checkout-btn" class="btn-primary w-full py-4 text-[10px] tracking-luxe uppercase" disabled>Pagar ahora</button>
+      </div>
     </div>
   </aside>
 

@@ -201,6 +201,18 @@
 
 .hero-parallax {
   will-change: transform;
+  position: relative;
+  transition: left 0.1s ease-out, top 0.1s ease-out;
+}
+
+/* Video background specific styles */
+#hero video {
+  filter: brightness(0.7) contrast(1.1);
+}
+
+#hero:hover video {
+  filter: brightness(0.75) contrast(1.15);
+  transition: filter 0.5s ease;
 }
 
 @keyframes bounce-slow {
@@ -225,9 +237,26 @@
   transform: translateY(0);
 }
 
+/* Animación de entrada más lenta y sofisticada para el título principal */
+#hero h1.reveal {
+  transition: opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px) scale(0.98);
+}
+
+#hero h1.reveal.visible {
+  transform: translateY(0) scale(1);
+}
+
 .img-reveal {
   transform: scale(1.1);
   transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
 }
 
 .reveal.visible .img-reveal {
@@ -266,11 +295,28 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover .product-image-wrap img {
-  transform: scale(1.06);
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Efecto de brillo (Shine) en productos */
+.product-image-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(-25deg);
+  transition: 0.8s;
+}
+
+.product-card:hover .product-image-wrap::after {
+  left: 150%;
 }
 
 .product-card .quick-add {
@@ -315,6 +361,28 @@
   background: #c9a962;
 }
 
+/* ===== Payment Buttons ===== */
+.cart-payment-btn,
+.modal-payment-btn {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-payment-btn:hover,
+.modal-payment-btn:hover {
+  border-color: #c9a962;
+  color: #c9a962;
+  background: rgba(201, 169, 98, 0.05);
+}
+
+.cart-payment-btn.active,
+.modal-payment-btn.active {
+  color: #0a0a0a;
+  background: #c9a962;
+  border-color: #c9a962;
+}
+
+
 .product-badge {
   position: absolute;
   top: 1rem;
@@ -326,6 +394,95 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.35rem 0.75rem;
+  z-index: 10;
+}
+
+/* ===== Size & Color Pills ===== */
+.size-pill,
+.color-pill {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(245, 240, 235, 0.15);
+  background: transparent;
+  color: rgba(245, 240, 235, 0.7);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.size-pill:hover,
+.color-pill:hover {
+  border-color: #c9a962;
+  color: #c9a962;
+  background: rgba(201, 169, 98, 0.08);
+}
+
+.size-pill[aria-pressed="true"],
+.color-pill[aria-pressed="true"] {
+  background: #c9a962;
+  border-color: #c9a962;
+  color: #0a0a0a;
+}
+
+/* ===== Filter Pills ===== */
+.filter-pill {
+  border-radius: 2px;
+}
+
+.filter-pill[aria-pressed="true"] {
+  background: #c9a962;
+  border-color: #c9a962;
+  color: #0a0a0a;
+}
+
+/* ===== Radio Circle ===== */
+.radio-circle {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.radio-circle .dot {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.radio-circle:has(.dot) .dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== Payment Option Cards ===== */
+.payment-option-card {
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.payment-option-card.active {
+  border-color: #c9a962;
+  background: rgba(201, 169, 98, 0.05);
+}
+
+.payment-option-card.active .radio-circle {
+  border-color: #c9a962 !important;
+}
+
+/* ===== Fade In Animation ===== */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ===== Testimonials ===== */
