@@ -1316,10 +1316,16 @@ function initQR() {
 
     // Generar QR con librería CDN
     if (window.QRCode && typeof window.QRCode.toCanvas === 'function') {
-      window.QRCode.toCanvas(canvas, url, { width: 240, margin: 1 }).catch(() => {
-        if (urlText) urlText.textContent = 'No se pudo generar el QR. Usa el enlace de abajo.';
-      });
+      window.QRCode.toCanvas(canvas, url, { width: 240, margin: 1, color: { dark: '#c9a962', light: '#0a0a0a' } })
+        .then(() => {
+          console.log('QR generado exitosamente');
+        })
+        .catch((err) => {
+          console.error('Error generando QR:', err);
+          if (urlText) urlText.textContent = 'No se pudo generar el QR. Usa el enlace de abajo.';
+        });
     } else {
+      console.warn('QRCode library no cargada');
       if (urlText) urlText.textContent = 'QR no disponible. Usa el enlace de abajo.';
     }
   };
