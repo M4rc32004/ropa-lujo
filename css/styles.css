@@ -436,6 +436,44 @@
   color: #0a0a0a;
 }
 
+/* ===== Hero Filter Pills ===== */
+.hero-filter-pill {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(245, 240, 235, 0.25);
+  color: rgba(245, 240, 235, 0.8);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.hero-filter-pill:hover {
+  border-color: #c9a962;
+  color: #c9a962;
+  background: rgba(201, 169, 98, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-filter-pill:active {
+  transform: translateY(0);
+}
+
+/* Mobile adjustments for hero filters */
+@media (max-width: 640px) {
+  .hero-filter-pill {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.6rem;
+  }
+
+  .hero-filters-bar {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
 /* ===== Radio Circle ===== */
 .radio-circle {
   position: relative;
